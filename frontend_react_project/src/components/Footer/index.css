@@ -1,6 +1,6 @@
 .footer {
-    background-color: #cbc4ba;
-    padding: 8px 22px 8px 0px;
+    background-color: transparent;
+    /* padding: 8px 22px 8px 0px; */
     margin-right: 18px;
     text-align: center;
     /* position: relative; */
@@ -9,7 +9,7 @@
     color: #6c757d;
     border-top: 1px solid #dee2e6;
     border-radius: 8px;
-    height:auto;
+    height: 10%;
     width: 100%;
   }
   

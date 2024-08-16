@@ -7,9 +7,9 @@ export const handleSendMessage = async (chats, currentChatIndex, dispatch) => {
     const updatedMessages = [...chats[currentChatIndex].messages, newMessage];
     dispatch(setMessages({ chatIndex: currentChatIndex, messages: updatedMessages }));
     dispatch(setUserInput({ chatIndex: currentChatIndex, userInput: '' }));
-    dispatch(setLoading(true));
 
     try {
+      dispatch(setLoading(true));
       const response = await sendMessageToApi(updatedMessages);
 
       if (response.messages) {
@@ -37,9 +37,9 @@ export const handleFileChange = async (event, dispatch, chats, currentChatIndex)
 
   dispatch(setFileSelected(true));
   if (file) {
-    dispatch(setLoading(true));
 
     try {
+      dispatch(setLoading(true));
       const response = await uploadFileToApi(file);
 
       if (response.image_url) {
@@ -60,8 +60,9 @@ export const handleFileChange = async (event, dispatch, chats, currentChatIndex)
 };
 
 export const handleSendImageAsPDF = async (pdfBlob, dispatch, chats, currentChatIndex) => {
-  dispatch(setLoading(true));
+
   try {
+    dispatch(setLoading(true));
     const response = await uploadFileToApi(new File([pdfBlob], 'image.pdf'));
     if (response.image_url) {
       const newImageMessage = { role: 'user', content: [{ type: 'image_url', image_url: { url: response.image_url } }] };
@@ -76,8 +77,8 @@ export const handleSendImageAsPDF = async (pdfBlob, dispatch, chats, currentChat
 
 
 export const handleCapture = async (imageSrc, dispatch, chats, currentChatIndex) => {
-  dispatch(setLoading(true));
   try {
+    dispatch(setLoading(true));
     const response = await fetch(imageSrc);
     const blob = await response.blob();
 

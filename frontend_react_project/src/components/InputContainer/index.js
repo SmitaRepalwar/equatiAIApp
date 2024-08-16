@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {useNavigate, useLocation} from 'react-router-dom'
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -9,7 +9,7 @@ import ModalComponent from '../ModalComponent'
 import { FaFilePdf } from 'react-icons/fa6';
 import "./index.css";
 
-function InputContainer({ pdfpage, fileInputRef }) {
+function InputContainer({ pdfpage, fileInputRef, isExpanded }) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ function InputContainer({ pdfpage, fileInputRef }) {
   const { chats, currentChatIndex } = useSelector((state) => state.chat);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCameraCaptureOpen, setIsCameraCaptureOpen] = useState(false);
-
 
   const userInput = chats[currentChatIndex]?.userInput || '';
 
@@ -73,7 +72,7 @@ function InputContainer({ pdfpage, fileInputRef }) {
   };
 
   return (
-    <div id="input-container">
+    <div id="input-container" style={{width: isExpanded ? "67vw" : "78vw", margin:"20px",}}>
       <input
         type="text"
         id="user-input"

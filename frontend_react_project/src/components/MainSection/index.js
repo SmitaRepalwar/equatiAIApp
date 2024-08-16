@@ -11,7 +11,7 @@ import CardsPage from '../CardsPage';
 import PreviousChats from '../PreviousChats';
 import backgroundImage from '../../public/backgroundImage.png'
 
-function MainSection({ containerClassName, pdfpage, chatPage }) {
+function MainSection({ containerClassName, pdfpage, chatPage, isExpanded, setPreviousChatOpen, previousChatOpen }) {
   const dispatch = useDispatch();
   const fileInputRef = React.useRef(null);
 
@@ -41,15 +41,20 @@ function MainSection({ containerClassName, pdfpage, chatPage }) {
          style={{
                   height: chatPage && "100vh", 
                   padding: "20px 20px 0px 30px",
+                  // alignSelf: "center",
+                  // display: "flex",
+                  // justifyContent: "center",
+                  // alignItems: "center",
                   backgroundImage: `url(${backgroundImage})`,
                   backgroundSize: "cover",
+                  // overflow: "hidden"
                }}>
       <ChatContainer renderMessageContent={renderMessageContent} chatPage={chatPage} />
-      {!chatPage && <BasicCard fileInputRef={fileInputRef}/>}
-      <InputContainer pdfpage={pdfpage} fileInputRef={fileInputRef}/>
+      {!chatPage && <BasicCard fileInputRef={fileInputRef} isExpanded={isExpanded} setPreviousChatOpen={setPreviousChatOpen} previousChatOpen={previousChatOpen}/>}
+      <InputContainer pdfpage={pdfpage} fileInputRef={fileInputRef} isExpanded={isExpanded}/>
       {/* {!chatPage && <CardsPage />} */}
       {!chatPage && <Footer />}
-      {!chatPage && <PreviousChats/>}
+      {!chatPage && <PreviousChats isExpanded={isExpanded} />}
     </div>
   );
 }

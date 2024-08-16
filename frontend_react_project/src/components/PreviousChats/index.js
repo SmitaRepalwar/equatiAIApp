@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {Drawer} from '@mui/material'
 import { setCurrentChat } from '../../store';
 
-const PreviousChats = ({open, onClose}) => {
+const PreviousChats = ({open, onClose, isChatHistory}) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
