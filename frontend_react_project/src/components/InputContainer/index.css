@@ -2,13 +2,13 @@
 #input-container {
   display: flex;
   align-items: center;
-  width: 78vw;
+  width: 100%;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   align-self: flex-end;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 30px;
   border-color: orange;
   border-width: 2px;
   border-style: solid;

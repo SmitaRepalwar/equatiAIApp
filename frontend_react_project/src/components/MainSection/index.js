@@ -39,15 +39,16 @@ function MainSection({ containerClassName, pdfpage, chatPage, isExpanded, setPre
   return (
     <div className={containerClassName} 
          style={{
-                  height: chatPage && "100vh", 
-                  padding: "20px 20px 0px 30px",
-                  // alignSelf: "center",
-                  // display: "flex",
-                  // justifyContent: "center",
-                  // alignItems: "center",
+                  height: chatPage ? "82vh" : "88vh", 
+                  padding: "0px 30px 20px 40px",
+                  marginLeft: "50px",
+                  alignSelf: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                   backgroundImage: `url(${backgroundImage})`,
                   backgroundSize: "cover",
-                  // overflow: "hidden"
+                  overflow: "hidden"
                }}>
       <ChatContainer renderMessageContent={renderMessageContent} chatPage={chatPage} />
       {!chatPage && <BasicCard fileInputRef={fileInputRef} isExpanded={isExpanded} setPreviousChatOpen={setPreviousChatOpen} previousChatOpen={previousChatOpen}/>}

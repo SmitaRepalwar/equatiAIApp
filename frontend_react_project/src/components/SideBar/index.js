@@ -46,6 +46,10 @@ const SideBar = ({ isExpanded, onChangesidebar, sideClassName, setPreviousChatOp
     setPreviousChatOpen(!previousChatOpen)
   };
 
+  const onClickLogin = () => {
+    navigate("/login");
+  };
+
   return (
    <>
     <div className={`sidebar-container ${sideClassName}`}>
@@ -62,6 +66,13 @@ const SideBar = ({ isExpanded, onChangesidebar, sideClassName, setPreviousChatOp
             )}
           </div>
           <div className="icons">
+          <div
+              className={`sidebar-item ${selectedTab === tabs[1] ? "blue-icon" : ""}`}
+              onClick={onClickHome}
+            >
+              <MdHomeFilled className="nav-item-mobile-link" />
+              {isExpanded && <p className="sidebar-description">Home</p>}
+            </div>
             <div
               className={`sidebar-item chat-icon ${selectedTab === tabs[0] ? "blue-icon" : ""}`}
               onClick={onPlusClick}
@@ -70,27 +81,32 @@ const SideBar = ({ isExpanded, onChangesidebar, sideClassName, setPreviousChatOp
               {isExpanded && <p className="sidebar-description">Chat</p>}
             </div>
             <div
-              className={`sidebar-item ${selectedTab === tabs[1] ? "blue-icon" : ""}`}
-              onClick={onClickHome}
-            >
-              <MdHomeFilled className="nav-item-mobile-link" />
-              {isExpanded && <p className="sidebar-description">Home</p>}
-            </div>
-            <div
               className={`sidebar-item ${selectedTab === tabs[2] ? "blue-icon" : ""}`}
               onClick={onClickChatHistory}
             >
               <RiChatHistoryLine className="nav-item-mobile-link" />
               {isExpanded && <p className="sidebar-description">Chat History</p>}
             </div>
+            {/* <div className="sidebar-item">
+              <MdOutlineCoPresent className="nav-item-mobile-link" />
+              {isExpanded && <p className="sidebar-description">AI Presentation</p>}
+            </div>
+            <div className="sidebar-item">
+              <FaPencilAlt className="nav-item-mobile-link" />
+              {isExpanded && <p className="sidebar-description">AI Writer</p>}
+            </div>
+            <div className="sidebar-item">
+              <BsPersonWorkspace className="nav-item-mobile-link" />
+              {isExpanded && <p className="sidebar-description">Workspace</p>}
+            </div> */}
           </div>
         </div>
-        <div className="sidebar-item last-item">
+        <div className="sidebar-item last-item" onClick={onClickLogin}>
           {!isExpanded && <CgProfile className="nav-item-mobile-link" />}
         </div>
         {isExpanded && (
           <div className="sidebar-footer">
-            <button className="sidebar-button">Sign up / Log in</button>
+            <button className="sidebar-button" onClick={onClickLogin}>Sign up / Log in</button>
           </div>
         )}
       </div>

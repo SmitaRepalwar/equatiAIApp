@@ -45,9 +45,14 @@ const PreviousChats = ({open, onClose, isChatHistory}) => {
           <li key={index} 
               style={{ cursor: 'pointer', 
                        fontWeight: currentChatIndex === index ? 'bold' : 'normal',
+                       backgroundColor:  currentChatIndex === index && 'lightblue',
                        listStyleType: "none",
                        margin: "10px 20px 10px 0px", 
-                       color: "blue"
+                       color: "blue",
+                       fontSize: "16px",
+                       fontFamily: "Roboto",
+                       padding: "10px",
+                       borderRadius: "2px"
                       }} 
                        onClick={() => handleChatSelection(index)}
                        >
